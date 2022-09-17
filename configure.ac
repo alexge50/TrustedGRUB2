@@ -71,6 +71,10 @@ grub_TRANSFORM([grub-sparc64-setup])
 grub_TRANSFORM([grub-render-label])
 grub_TRANSFORM([grub-file])
 
+TARGET_CFLAGS="-Wno-packed-not-aligned -Wno-address-of-packed-member $TARGET_CFLAGS"
+HOST_CFLAGS="-Wno-packed-not-aligned -Wno-address-of-packed-member $HOST_CFLAGS"
+CFLAGS="-Wno-unused-value $CFLAGS"
+
 # Optimization flag.  Allow user to override.
 if test "x$TARGET_CFLAGS" = x; then
   TARGET_CFLAGS="$TARGET_CFLAGS -Os"
